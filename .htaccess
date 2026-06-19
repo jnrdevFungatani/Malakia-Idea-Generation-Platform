@@ -1,0 +1,20 @@
+# Malakia — route everything through the front controller.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Serve real files / assets directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Everything else -> index.php
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Protect the SQLite database from direct web access
+<FilesMatch "\.(sqlite|sqlite-wal|sqlite-shm)$">
+    Require all denied
+</FilesMatch>
+
+# Sensible defaults
+Options -Indexes
