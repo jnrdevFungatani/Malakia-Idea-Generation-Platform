@@ -55,7 +55,4 @@ assets/             app.css (design system), app.js (interactions)
 database/           SQLite file lives here (auto-created)
 ```
 
-## Notes
-- **Security:** prepared statements everywhere, output escaping, CSRF tokens, password hashing, auth guards, ownership checks.
-- **Porting to Laravel** is straightforward if you later want queues, an admin panel, or an API — the logic in `lib/` maps cleanly onto controllers/models, and the views onto Blade. The data model (users, ideas, votes, comments) is already normalized.
-- This was rebuilt from the original "Ideation-Repo" prototype; the original had SQL injection, broken forms, no sessions, and no schema. All of that has been fixed.
+
